@@ -1,0 +1,14 @@
+.cities-list {
+    flex-grow: 1;
+    width: calc(100% + 30px);
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    margin: 20px -15px 0;
+    &-title {
+        display: inline-block;
+        font-size: 50px;
+        font-weight: 700;
+        color: rgba(255,255,255, .4);
+    }
+}

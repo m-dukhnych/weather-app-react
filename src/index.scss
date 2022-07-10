@@ -1,0 +1,19 @@
+@import './scss/nullstyle';
+@import './scss/variables';
+
+body {
+    font-family: $caveat;
+    background-color: #0B1F43;
+    color: #fff;
+}
+
+.main-title {
+    font-size: 100px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+button {
+    background-color: transparent;
+}
