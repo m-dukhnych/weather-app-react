@@ -1,4 +1,4 @@
-import { Component } from "react/cjs/react.production.min";
+import { Component } from "react";
 
 class ErrorBoundery extends Component {
     state = {

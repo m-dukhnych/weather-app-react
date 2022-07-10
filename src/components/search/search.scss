@@ -46,7 +46,7 @@
             padding: 10px;
             transition: background-color .2s;
             &:not(:last-child) {
-                border-bottom: 1px solid #000;
+                border-bottom: 1px solid #ccc;
                 cursor: pointer;
             }
             &:hover {

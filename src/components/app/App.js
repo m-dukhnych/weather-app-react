@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Search from '../search/Search';
 import CitiesList from '../citiesList/CitiesList';
 import Settings from '../settings/Settings';
+import ErrorBoundary from '../errorBoundary/ErrorBoundary';
 
 import settingsIcon from '../../resources/img/settings.svg';
 import updateIcon from '../../resources/img/reload.svg';
@@ -25,7 +26,9 @@ const App = () => {
         <div className="app">
             <h1 className='main-title'>Weather App</h1>
             <div className="app-header">
-                <Search />
+                <ErrorBoundary>
+                    <Search cities={cities} setCities={setCities}/>
+                </ErrorBoundary>
                 <div className='app-header-btns'>
                     <button className='updateall-btn'>
                         <img src={updateIcon} alt="updateAll" />
