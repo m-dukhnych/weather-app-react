@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Search from '../search/Search';
 import CitiesList from '../citiesList/CitiesList';
@@ -17,10 +17,13 @@ const App = () => {
         localStorage.setItem('settings', JSON.stringify({units: 'metric', autoupdate: 0, language: 'english'}));
     }   
 
-    // eslint-disable-next-line
     const [cities, setCities] = useState(JSON.parse(localStorage.getItem('cities')));
     const [settings, setSettings] = useState(JSON.parse(localStorage.getItem('settings')));
     const [showSettings, setShowSettings] = useState(false);
+
+    useEffect(() => {
+
+    }, []);
 
     return (
         <div className="app">
@@ -38,7 +41,7 @@ const App = () => {
                     </button>
                 </div>                
             </div>            
-            <CitiesList />
+            <CitiesList cities={cities} setCities={setCities} settings={settings}/>
             { showSettings ? <Settings 
                                 settings={settings}
                                 setSettings={setSettings}

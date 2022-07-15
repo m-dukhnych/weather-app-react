@@ -1,9 +1,13 @@
-// eslint-disable-next-line
 export const API_KEY = '1061c2481bdb6174a0bd57c5669ae76d';
 
 export const getCities = async (cityName) => {
     const res = await getData(`https://nominatim.openstreetmap.org/search?city=${cityName}&format=json`);
     return res.map(_transformCityData);
+}
+
+export const getWeather = async (lat, lon, units) => {
+    const res = await getData(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=${units}&exclude=minutely&appid=${API_KEY}`);
+    return res;
 }
 
 const getData = async (url) => {
