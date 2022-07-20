@@ -8,7 +8,17 @@
     color: #000;
     padding: 10px;
     cursor: pointer;
-    overflow: hidden;
+    // overflow: hidden;
+
+    .temp {
+        font-size: 100px;
+        line-height: 1;
+    }
+    .metric {
+        margin-left: 10px;
+        font-size: 50px;
+        line-height: 1;
+    }    
         
     button {
         background-color: transparent;
@@ -53,6 +63,9 @@
     &-temperature {     
         margin-top: 15px;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         span {
             font-size: 100px;
             line-height: 1;
@@ -78,22 +91,77 @@
             background-color: #ccc;
         }
     }
+
 }
 
-.alert-enter {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  .alert-enter-active {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 300ms, transform 300ms;
-  }
-  .alert-exit {
-    opacity: 1;
-  }
-  .alert-exit-active {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 300ms, transform 300ms;
-  }
+.city-card-content {
+    display: flex;
+    padding: 10px 0;
+
+    .section-name {
+        position: absolute;
+        top: -10px;
+        left: 15px;
+        font-size: 18px;
+        background-color: #fff;
+        padding: 0 5px;
+    }
+}
+.current {
+    font-size: 15px;
+    width: 40%;
+    &-weather {
+        height: 100%;
+        position: relative;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px 10px 20px 10px;
+        margin-right: 5px;
+    }
+    .current-update-time {
+        margin: 15px 0 0 15px;
+    }
+    .current-temp {
+        display: flex;
+        align-items: center;        
+        img {
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+    }
+    .current-feelslike {
+        margin-left: 15px;
+        font-size: 18px;
+    }
+    .current-details {
+        margin: 15px;
+        border-left: 1px solid #eb6e4b;
+        padding: 0 10px;
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            margin: 7px 0;
+            width: 50%;
+        }
+    }
+    .current-footer {
+        margin-left: 15px;
+    }
+}
+.city-card-forecast {
+    width: 60%;
+    margin-left: 5px;
+    &-hourly, &-daily {
+        position: relative;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    &-daily {
+
+    }
+    &-daily {
+        margin-top: 15px;
+
+    }
+}

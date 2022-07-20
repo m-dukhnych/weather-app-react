@@ -4,7 +4,7 @@ import CityCard from '../cityCard/CityCard';
 
 import './citiesList.scss';
 
-const CitiesList = ({cities, setCities, settings}) => {
+const CitiesList = ({cities, setCities, settings, updateWeather, setUpdateWeather}) => {
     const [cardId, setCardId] = useState(null);
 
     const cards = cities.map((item, i) => {
@@ -12,10 +12,13 @@ const CitiesList = ({cities, setCities, settings}) => {
                     id={i} 
                     city={item} 
                     units={settings.units}
+                    autoupdate={settings.autoupdate}
                     setCardId={setCardId}
                     setCities={setCities}
                     key={i} 
-                    display={cardId === null ? null : 'none'}/>
+                    display={cardId === null ? null : 'none'}
+                    updateWeather={updateWeather}
+                    setUpdateWeather={setUpdateWeather} />
     });    
 
     return (

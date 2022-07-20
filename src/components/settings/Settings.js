@@ -5,7 +5,7 @@ import Button from '../button/Button';
 import cross from '../../resources/img/cross.svg';
 import './settings.scss';
 
-const Settings = ({settings, setSettings, setShowSettings}) => {
+const Settings = ({settings, setSettings, setShowSettings, setUpdateWeather}) => {
     const [units, setUnits] = useState(settings.units);
     const [autoupdate, setAutoupdate] = useState(settings.autoupdate);
     const [language, setLanguage] = useState(settings.language);
@@ -13,6 +13,7 @@ const Settings = ({settings, setSettings, setShowSettings}) => {
     const onSaveSettings = () => {
         localStorage.setItem('settings', JSON.stringify({units, autoupdate,language}));
         setSettings({units, autoupdate,language});
+        setUpdateWeather(true);
         setShowSettings(false);
     }
 
@@ -45,11 +46,11 @@ const Settings = ({settings, setSettings, setShowSettings}) => {
                             value={autoupdate}
                             onChange={e => setAutoupdate(e.target.value)} >
                                 <option value={0}>off</option>
-                                <option value={1}>1 hour</option>
-                                <option value={3}>3 hours</option>
-                                <option value={6}>6 hours</option>
-                                <option value={12}>12 hours</option>
-                                <option value={24}>24 hours</option>
+                                <option value={1 * 3600000}>1 hour</option>
+                                <option value={3 * 3600000}>3 hours</option>
+                                <option value={6 * 3600000}>6 hours</option>
+                                <option value={12 * 3600000}>12 hours</option>
+                                <option value={24 * 3600000}>24 hours</option>
                         </select>
                     </div>
                     <div className="settings-language">

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import Search from '../search/Search';
 import CitiesList from '../citiesList/CitiesList';
@@ -20,10 +20,7 @@ const App = () => {
     const [cities, setCities] = useState(JSON.parse(localStorage.getItem('cities')));
     const [settings, setSettings] = useState(JSON.parse(localStorage.getItem('settings')));
     const [showSettings, setShowSettings] = useState(false);
-
-    useEffect(() => {
-
-    }, []);
+    const [updateWeather, setUpdateWeather] = useState(true);
 
     return (
         <div className="app">
@@ -33,7 +30,7 @@ const App = () => {
                     <Search cities={cities} setCities={setCities}/>
                 </ErrorBoundary>
                 <div className='app-header-btns'>
-                    <button className='updateall-btn'>
+                    <button onClick={() => cities.length > 0 ? setUpdateWeather(true) : alert('Please add a city...')} className='updateall-btn'>
                         <img src={updateIcon} alt="updateAll" />
                     </button>
                     <button className='settings-btn' onClick={() => setShowSettings(true)}>
@@ -41,11 +38,17 @@ const App = () => {
                     </button>
                 </div>                
             </div>            
-            <CitiesList cities={cities} setCities={setCities} settings={settings}/>
+            <CitiesList 
+                cities={cities} 
+                setCities={setCities} 
+                settings={settings} 
+                updateWeather={updateWeather} 
+                setUpdateWeather={setUpdateWeather}/>
             { showSettings ? <Settings 
                                 settings={settings}
                                 setSettings={setSettings}
-                                setShowSettings={setShowSettings} /> : null }
+                                setShowSettings={setShowSettings}
+                                setUpdateWeather={setUpdateWeather} /> : null }
         </div>
     )
 }
